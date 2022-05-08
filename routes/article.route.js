@@ -2,7 +2,7 @@ module.exports = (app) => {
   const article = require("../controllers/article.controller.js");
   var router = require("express").Router();
   // Create a new article
-  router.post("/", article.create);
+  router.post("/", article.create); // A POST request on POSTMAN must be created with the option x-www-form-urlencoded in the 'Body' part.
   // Retrieve all articles
   router.get("/", article.findAll);
   // Retrieve a single article with id

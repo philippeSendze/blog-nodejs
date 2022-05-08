@@ -1,9 +1,18 @@
 module.exports = (mongoose) => {
   var schema = mongoose.Schema(
     {
-      title: String,
-      author: String,
-      text: String,
+      title: {
+        type: String,
+        required: true,
+      },
+      author: {
+        type: String,
+        required: true,
+      },
+      text: {
+        type: String,
+        required: true,
+      },
     },
     { timestamps: true }
   );
