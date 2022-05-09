@@ -15,6 +15,7 @@ exports.create = (req, res) => {
     .save(article)
     .then((data) => {
       res.send(data);
+      console.log("Article saved!");
     })
     .catch((err) => {
       res.status(500).send({
@@ -62,7 +63,10 @@ exports.update = (req, res) => {
         res.status(404).send({
           message: `Cannot update Article with id=${id}. Maybe Article was not found!`,
         });
-      } else res.send({ message: "Article was updated successfully." });
+      } else {
+        res.send({ message: "Article was updated successfully." });
+        console.log("Article updated!");
+      }
     })
     .catch((err) => {
       res.status(500).send({
@@ -84,6 +88,7 @@ exports.delete = (req, res) => {
         res.send({
           message: "Article was deleted successfully!",
         });
+        console.log("Article deleted!");
       }
     })
     .catch((err) => {
@@ -101,6 +106,7 @@ exports.deleteAll = (req, res) => {
       res.send({
         message: `${data.deletedCount} Articles were deleted successfully!`,
       });
+      console.log("Articles deleted!");
     })
     .catch((err) => {
       res.status(500).send({
