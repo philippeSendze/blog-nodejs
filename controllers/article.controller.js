@@ -1,16 +1,16 @@
 const db = require("../models");
 const Article = db.articles;
-// Create and Save a new Article
-// A POST request on POSTMAN must be created with the option x-www-form-urlencoded in the 'Body' part.
+
 exports.create = (req, res) => {
-  // Create a Article
+  // Create an Article
+  // A POST request on POSTMAN must be created with the option x-www-form-urlencoded in the 'Body' part.
   const article = new Article({
     title: req.body.title,
     author: req.body.author,
     text: req.body.text,
   });
 
-  // Save Article in the database
+  // Save an Article in the database
   article
     .save(article)
     .then((data) => {
@@ -24,6 +24,7 @@ exports.create = (req, res) => {
       });
     });
 };
+
 // Retrieve all Articles from the database.
 exports.findAll = (req, res) => {
   Article.find()
@@ -37,6 +38,7 @@ exports.findAll = (req, res) => {
       });
     });
 };
+
 // Find a single Article with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
@@ -53,7 +55,8 @@ exports.findOne = (req, res) => {
         .send({ message: "Error retrieving Article with id=" + id });
     });
 };
-// Update a Article by the id in the request
+
+// Update an Article by the id in the request
 exports.update = (req, res) => {
   const id = req.params.id;
 
@@ -74,7 +77,8 @@ exports.update = (req, res) => {
       });
     });
 };
-// Delete a Article with the specified id in the request
+
+// Delete an Article with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
 
@@ -97,10 +101,9 @@ exports.delete = (req, res) => {
       });
     });
 };
+
 // Delete all Articles from the database.
 exports.deleteAll = (req, res) => {
-  const id = req.params.id;
-
   Article.deleteMany({})
     .then((data) => {
       res.send({

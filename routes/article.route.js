@@ -11,7 +11,7 @@ module.exports = (app) => {
   router.put("/:id", article.update);
   // Delete a article with id
   router.delete("/:id", article.delete);
-  // Create a new article
+  // Delete all articles
   router.delete("/", article.deleteAll);
   app.use("/api/articles", router);
 };
