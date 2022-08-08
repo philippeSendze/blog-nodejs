@@ -8,6 +8,7 @@ exports.create = (req, res) => {
     title: req.body.title,
     author: req.body.author,
     text: req.body.text,
+    image: req.body.image,
   });
 
   // Save an Article in the database

@@ -9,6 +9,10 @@ module.exports = (mongoose) => {
         type: String,
         required: true,
       },
+      image: {
+        type: String,
+        required: true,
+      },
       text: {
         type: String,
         required: true,
